@@ -3,40 +3,14 @@ return {
     clipboard = "unnamedplus",
   },
   highlights = {
-    init = {
-      Normal = { bg = "NONE", ctermbg = "NONE" },
-      NormalNC = { bg = "NONE", ctermbg = "NONE" },
-      CursorColumn = { cterm = {}, ctermbg = "NONE", ctermfg = "NONE" },
-      CursorLine = { cterm = {}, ctermbg = "NONE", ctermfg = "NONE" },
-      CursorLineNr = { cterm = {}, ctermbg = "NONE", ctermfg = "NONE" },
-      LineNr = {},
-      SignColumn = {},
-      StatusLine = {},
-      NeoTreeNormal = { bg = "NONE", ctermbg = "NONE" },
-      NeoTreeNormalNC = { bg = "NONE", ctermbg = "NONE" },
-    },
+    init = {},
   },
   plugins = {
+    "gbprod/cutlass.nvim",
     "AstroNvim/astrocommunity",
     { import = "astrocommunity.motion.mini-move" },
     { import = "astrocommunity.project.nvim-spectre" },
-    { import = "astrocommunity.completion.copilot-lua" },
     { import = "astrocommunity.project.projectmgr-nvim" },
-    {
-      "copilot.lua",
-      opts = {
-        suggestion = {
-          keymap = {
-            accept = "<C-l>",
-            accept_word = false,
-            accept_line = false,
-            next = "<C-.>",
-            prev = "<C-,>",
-            dismiss = "<C/>",
-          },
-        },
-      },
-    },
   },
   mappings = {
     -- first key is the mode
@@ -57,11 +31,13 @@ return {
       ["<leader>b"] = { name = "Buffers" },
       -- quick save
       ["<C-s>"] = { ":w!<cr>", desc = "Save File" }, -- change description but the same command
-      ["dd"] = { "\"_d", desc = "Deletes current line without copying the contents" }
+      ["d"] = { '"_d', desc = "Deletes current line without copying the contents" },
+      -- ["<Del>"] = { '"_d', desc = "Delete visual selection without saving to clipboard" },
     },
-    t = {
+    v = {
       -- setting a mapping to false will disable it
       -- ["<esc>"] = false,
+      ["<Del>"] = { '"_d', desc = "Delete visual selection without saving to clipboard" },
     },
   },
 }
